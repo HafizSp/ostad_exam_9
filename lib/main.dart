@@ -40,17 +40,20 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildButton(BuildContext context, String size) {
-    return ElevatedButton(
-      onPressed: () {
-        _changeButtonColor(size);
-        _showSnackbar(context, size);
-      },
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
-          size == selectedSize ? Colors.green : Colors.blue,
+    return SizedBox(
+      width: 92,
+      child: ElevatedButton(
+        onPressed: () {
+          _changeButtonColor(size);
+          _showSnackbar(context, size);
+        },
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(
+            size == selectedSize ? Colors.green : Colors.blue,
+          ),
         ),
+        child: Text(size),
       ),
-      child: Text(size),
     );
   }
 
@@ -70,13 +73,13 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  _buildButton(context, "S"),
+                  Expanded(child: _buildButton(context, "S")),
                   const SizedBox(width: 10.0),
-                  _buildButton(context, "M"),
+                  Expanded(child: _buildButton(context, "M")),
                   const SizedBox(width: 10.0),
-                  _buildButton(context, "L"),
+                  Expanded(child: _buildButton(context, "L")),
                   const SizedBox(width: 10.0),
-                  _buildButton(context, "XL"),
+                  Expanded(child: _buildButton(context, "XL")),
                 ],
               ),
               Row(
